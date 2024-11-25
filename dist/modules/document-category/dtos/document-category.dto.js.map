@@ -1,0 +1,1 @@
+{"version":3,"file":"document-category.dto.js","sourceRoot":"","sources":["../../../../src/modules/document-category/dtos/document-category.dto.ts"],"names":[],"mappings":";;;AAAA,mEAA+D;AAG/D,MAAa,mBAAoB,SAAQ,0BAAW;IAClD,IAAI,CAAS;IAEb,YAAY,sBAA8C;QACxD,KAAK,CAAC,sBAAsB,CAAC,CAAC;QAE9B,IAAI,CAAC,IAAI,GAAG,sBAAsB,CAAC,IAAI,CAAC;IAC1C,CAAC;CACF;AARD,kDAQC"}

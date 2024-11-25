@@ -1,0 +1,1 @@
+{"version":3,"file":"use-dto.decorator.js","sourceRoot":"","sources":["../../src/decorators/use-dto.decorator.ts"],"names":[],"mappings":";;AAEA,wBAWC;AAXD,SAAgB,MAAM,CAAC,QAAqB;IAC1C,OAAO,CAAC,IAAI,EAAE,EAAE;QAGd,IAAI,CAAE,QAAoB,EAAE,CAAC;YAC3B,MAAM,IAAI,KAAK,CAAC,oCAAoC,CAAC,CAAC;QACxD,CAAC;QAGD,IAAI,CAAC,SAAS,CAAC,QAAQ,GAAG,QAAQ,CAAC;IACrC,CAAC,CAAC;AACJ,CAAC"}

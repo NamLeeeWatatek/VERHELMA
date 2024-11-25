@@ -1,0 +1,1 @@
+{"version":3,"file":"user-location-tracking.dto.js","sourceRoot":"","sources":["../../../../src/modules/user/dtos/user-location-tracking.dto.ts"],"names":[],"mappings":";;;AAAA,oEAAgE;AAEhE,MAAa,uBAAuB;IAClC,QAAQ,CAAc;IAEtB,QAAQ,CAAO;IAEf;QACE,IAAI,CAAC,QAAQ,GAAG,IAAI,0BAAW,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC;QACtC,IAAI,CAAC,QAAQ,GAAG,IAAI,IAAI,EAAE,CAAC;IAC7B,CAAC;CACF;AATD,0DASC"}

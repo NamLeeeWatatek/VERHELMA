@@ -1,0 +1,1 @@
+{"version":3,"file":"permission-not-found.exception.js","sourceRoot":"","sources":["../../../../src/modules/document/exceptions/permission-not-found.exception.ts"],"names":[],"mappings":";;;AAAA,2CAAmD;AAEnD,MAAa,2BAA4B,SAAQ,0BAAiB;IAChE,YAAY,KAAc;QACxB,KAAK,CAAC,0BAA0B,EAAE,KAAK,CAAC,CAAC;IAC3C,CAAC;CACF;AAJD,kEAIC"}
