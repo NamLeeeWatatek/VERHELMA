@@ -2,15 +2,14 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import * as path from 'node:path';
 
 import { Injectable } from '@nestjs/common';
+import { Cron } from '@nestjs/schedule';
 import { InjectRepository } from '@nestjs/typeorm';
 import * as admin from 'firebase-admin';
 import { Repository } from 'typeorm';
 
 import { UserEntity } from '../../modules/user/user.entity';
-import { Cron } from '@nestjs/schedule';
 
 @Injectable()
 export class FirebaseFirestoreService {
@@ -20,21 +19,23 @@ export class FirebaseFirestoreService {
     @InjectRepository(UserEntity)
     private userRepository: Repository<UserEntity>,
   ) {
-    const serviceAccountPath = path.resolve(
-      __dirname,
-      '../../../vermelha-88923-firebase-adminsdk-dz0c7-e4e3f671f9.json',
-    );
+    const serviceAccount = {
+      projectId: process.env.FIREBASE_PROJECT_ID,
+      privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+      clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+    };
 
     if (admin.apps.length === 0) {
       admin.initializeApp({
-        credential: admin.credential.cert(serviceAccountPath),
+        credential: admin.credential.cert(serviceAccount),
+        storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
       });
     }
 
     this.firestore = admin.firestore();
   }
 
-    @Cron('*/5 * * * *') // Every 5 minutes
+  @Cron('*/5 * * * *') // Every 5 minutes
   async syncUsersToFirebase() {
     const users = await this.userRepository.find();
 

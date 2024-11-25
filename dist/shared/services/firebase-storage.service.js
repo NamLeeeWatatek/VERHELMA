@@ -2,17 +2,20 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FirebaseStorageService = void 0;
 const tslib_1 = require("tslib");
-const path = tslib_1.__importStar(require("node:path"));
 const common_1 = require("@nestjs/common");
 const admin = tslib_1.__importStar(require("firebase-admin"));
 const uuid_1 = require("uuid");
 let FirebaseStorageService = class FirebaseStorageService {
     constructor() {
-        const serviceAccountPath = path.resolve(__dirname, '../../../vermelha-88923-firebase-adminsdk-dz0c7-e4e3f671f9.json');
+        const serviceAccount = {
+            projectId: process.env.FIREBASE_PROJECT_ID,
+            privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+            clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+        };
         if (admin.apps.length === 0) {
             admin.initializeApp({
-                credential: admin.credential.cert(serviceAccountPath),
-                storageBucket: process.env.STORAGE_BUCKET,
+                credential: admin.credential.cert(serviceAccount),
+                storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
             });
         }
     }

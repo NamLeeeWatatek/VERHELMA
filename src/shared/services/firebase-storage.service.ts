@@ -1,5 +1,3 @@
-import * as path from 'node:path';
-
 import { Injectable } from '@nestjs/common';
 import * as admin from 'firebase-admin';
 import { v4 as uuidV4 } from 'uuid';
@@ -7,15 +5,16 @@ import { v4 as uuidV4 } from 'uuid';
 @Injectable()
 export class FirebaseStorageService {
   constructor() {
-    const serviceAccountPath = path.resolve(
-      __dirname,
-      '../../../vermelha-88923-firebase-adminsdk-dz0c7-e4e3f671f9.json',
-    );
+    const serviceAccount = {
+      projectId: process.env.FIREBASE_PROJECT_ID,
+      privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+      clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+    };
 
     if (admin.apps.length === 0) {
       admin.initializeApp({
-        credential: admin.credential.cert(serviceAccountPath),
-        storageBucket: process.env.STORAGE_BUCKET,
+        credential: admin.credential.cert(serviceAccount),
+        storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
       });
     }
   }
